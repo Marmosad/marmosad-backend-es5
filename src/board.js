@@ -4,6 +4,14 @@ var rxService = require('./dataServices/rxService');
 var jsonHandler = require('./handlers/jsonHandler');
 var stringify = require('json-stringify-safe');
 var MAX_SCORE = 4;
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+var isLimitReached = false;
+var limitReached = function() {
+    console.log('Player Limit Reached');
+    isLimitReached = true;
+}
+eventEmitter.on('Limit Reached', limitReached);
 var boardData = {
     phase: 0,
     Phases: Object.freeze(
@@ -74,10 +82,14 @@ var self = module.exports = {
         return boardData.players[socketId].data.playerName;
     },
     joinedPlayer: function (playerName, socket, socketid) {
+        console.log(playerName);
         playerHandler.createPlayer(playerName, socket, socketid);
     },
     removePlayer: function (playerId) {
-        boardData.players[playerId].socket.disconnect(true);
+        isLimitReached = false;
+        if(boardData.players[playerId]){
+            boardData.players[playerId].socket.disconnect(true);
+        }
         delete boardData.players[playerId];
         this.updatePlayersInDisplay();
         this.updateCurrentDisplay();
@@ -204,9 +216,15 @@ var self = module.exports = {
     updatePlayersInDisplay: function () {
         boardData.display.players = [];
         for (var i = 0; i < Object.keys(boardData.players).length; i++) {
+            if (Object.keys(boardData.players).length == 3) {
+                eventEmitter.emit('Limit Reached');
+            }
             boardData.display.players.push(boardData.players[Object.keys(boardData.players)[i]].data);
         }
-    }//Decided to implement this as a function in the end cuz prior approach would only update display at user join time.
+    },//Decided to implement this as a function in the end cuz prior approach would only update display at user join time.
+    isLimitReached() {
+        return isLimitReached;
+    }
 };
 
 
