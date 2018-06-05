@@ -10,6 +10,12 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
+app.get('/playerLimit', function (req, res) {
+    console.log(board.isLimitReached());
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200'); //only for running on seperate address
+    res.send(JSON.stringify({isLimitReached: board.isLimitReached()}));
+})
+
 http.listen(8081, function () {
     console.log('listening on *: 8081');
 });
