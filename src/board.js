@@ -84,6 +84,7 @@ var self = module.exports = {
     joinedPlayer: function (playerName, socket, socketid) {
         console.log(playerName);
         playerHandler.createPlayer(playerName, socket, socketid);
+        this.updatePlayersInDisplay();
     },
     removePlayer: function (playerId) {
         isLimitReached = false;

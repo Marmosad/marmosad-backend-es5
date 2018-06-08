@@ -7,7 +7,7 @@ var board = require('../board.js');
 var self = module.exports = {
     start: function () {
         connection = mysql.createConnection({
-            host: "35.194.85.74",
+            host: "35.203.14.127",
             user: "root",
             password: "marmoExtraSad3",
             database: 'cah'
