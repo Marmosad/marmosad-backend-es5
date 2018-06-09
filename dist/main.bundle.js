@@ -26,6 +26,9 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__splash_splash_component__ = __webpack_require__("../../../../../src/app/splash/splash.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_core_component__ = __webpack_require__("../../../../../src/app/core/core.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_board_core_board_core_component__ = __webpack_require__("../../../../../src/app/core/board-core/board-core.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_lobby_lobby_component__ = __webpack_require__("../../../../../src/app/core/lobby/lobby.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_core_route_activator_service__ = __webpack_require__("../../../../../src/app/core/core-route-activator.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -36,10 +39,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var routes = [
     { path: '', redirectTo: '/splash', pathMatch: 'full' },
     { path: 'splash', component: __WEBPACK_IMPORTED_MODULE_2__splash_splash_component__["a" /* SplashComponent */] },
-    { path: 'core', component: __WEBPACK_IMPORTED_MODULE_3__core_core_component__["a" /* CoreComponent */] }
+    { path: 'core', component: __WEBPACK_IMPORTED_MODULE_3__core_core_component__["a" /* CoreComponent */],
+        children: [
+            { path: '', redirectTo: 'lobby', pathMatch: 'full' },
+            { path: 'lobby', component: __WEBPACK_IMPORTED_MODULE_5__core_lobby_lobby_component__["a" /* LobbyComponent */] },
+            { path: 'game', component: __WEBPACK_IMPORTED_MODULE_4__core_board_core_board_core_component__["a" /* BoardCoreComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__core_core_route_activator_service__["a" /* CoreCanActivate */]] }
+        ] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -128,26 +139,36 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material_button__ = __webpack_require__("../../../material/esm5/button.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_flex_layout__ = __webpack_require__("../../../flex-layout/esm5/flex-layout.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__global_navbar_global_navbar_component__ = __webpack_require__("../../../../../src/app/global-navbar/global-navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__global_navbar_global_navbar_elements_global_navbar_elements_component__ = __webpack_require__("../../../../../src/app/global-navbar/global-navbar-elements/global-navbar-elements.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__splash_splash_component__ = __webpack_require__("../../../../../src/app/splash/splash.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_core_component__ = __webpack_require__("../../../../../src/app/core/core.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__splash_splash_navigate_splash_navigate_component__ = __webpack_require__("../../../../../src/app/splash/splash-navigate/splash-navigate.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_chat_chat_component__ = __webpack_require__("../../../../../src/app/core/chat/chat.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__socket_io_socket_io_service__ = __webpack_require__("../../../../../src/app/socket-io/socket-io.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_score_board_score_board_component__ = __webpack_require__("../../../../../src/app/core/score-board/score-board.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_board_core_board_core_component__ = __webpack_require__("../../../../../src/app/core/board-core/board-core.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__core_game_board_game_board_component__ = __webpack_require__("../../../../../src/app/core/game-board/game-board.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__core_display_service_display_service_service__ = __webpack_require__("../../../../../src/app/core/display-service/display-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__global_navbar_global_navbar_component__ = __webpack_require__("../../../../../src/app/global-navbar/global-navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__global_navbar_global_navbar_elements_global_navbar_elements_component__ = __webpack_require__("../../../../../src/app/global-navbar/global-navbar-elements/global-navbar-elements.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__splash_splash_component__ = __webpack_require__("../../../../../src/app/splash/splash.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_core_component__ = __webpack_require__("../../../../../src/app/core/core.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__splash_splash_navigate_splash_navigate_component__ = __webpack_require__("../../../../../src/app/splash/splash-navigate/splash-navigate.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_chat_chat_component__ = __webpack_require__("../../../../../src/app/core/chat/chat.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__socket_io_socket_io_service__ = __webpack_require__("../../../../../src/app/socket-io/socket-io.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_score_board_score_board_component__ = __webpack_require__("../../../../../src/app/core/score-board/score-board.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__core_board_core_board_core_component__ = __webpack_require__("../../../../../src/app/core/board-core/board-core.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__core_game_board_game_board_component__ = __webpack_require__("../../../../../src/app/core/game-board/game-board.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__core_display_service_display_service_service__ = __webpack_require__("../../../../../src/app/core/display-service/display-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__common_simple_modal_simple_modal_component__ = __webpack_require__("../../../../../src/app/common/simple-modal/simple-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__core_lobby_lobby_component__ = __webpack_require__("../../../../../src/app/core/lobby/lobby.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__core_core_route_activator_service__ = __webpack_require__("../../../../../src/app/core/core-route-activator.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -174,16 +195,18 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["K" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__global_navbar_global_navbar_component__["a" /* GlobalNavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__global_navbar_global_navbar_elements_global_navbar_elements_component__["a" /* GlobalNavbarElementsComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__splash_splash_component__["a" /* SplashComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__core_core_component__["a" /* CoreComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__splash_splash_navigate_splash_navigate_component__["a" /* SplashNavigateComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__core_chat_chat_component__["a" /* ChatComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__core_score_board_score_board_component__["a" /* ScoreBoardComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__core_board_core_board_core_component__["a" /* BoardCoreComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__core_game_board_game_board_component__["a" /* GameBoardComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__global_navbar_global_navbar_component__["a" /* GlobalNavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__global_navbar_global_navbar_elements_global_navbar_elements_component__["a" /* GlobalNavbarElementsComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__splash_splash_component__["a" /* SplashComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__core_core_component__["a" /* CoreComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__splash_splash_navigate_splash_navigate_component__["a" /* SplashNavigateComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__core_chat_chat_component__["a" /* ChatComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__core_score_board_score_board_component__["a" /* ScoreBoardComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__core_board_core_board_core_component__["a" /* BoardCoreComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__core_game_board_game_board_component__["a" /* GameBoardComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__common_simple_modal_simple_modal_component__["a" /* SimpleModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__core_lobby_lobby_component__["a" /* LobbyComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MatCardModule */],
@@ -192,17 +215,138 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MatListModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["c" /* MatIconModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MatFormFieldModule */],
-                __WEBPACK_IMPORTED_MODULE_15__angular_forms__["c" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_16__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */].withServerTransition({ appId: 'serverApp' }),
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_flex_layout__["a" /* FlexLayoutModule */]
+                __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_flex_layout__["a" /* FlexLayoutModule */],
+                __WEBPACK_IMPORTED_MODULE_24__ng_bootstrap_ng_bootstrap__["c" /* NgbModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["b" /* HttpClientModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_14__socket_io_socket_io_service__["a" /* SocketIoService */], __WEBPACK_IMPORTED_MODULE_19__core_display_service_display_service_service__["a" /* DisplayService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_15__socket_io_socket_io_service__["a" /* SocketIoService */],
+                __WEBPACK_IMPORTED_MODULE_20__core_display_service_display_service_service__["a" /* DisplayService */],
+                __WEBPACK_IMPORTED_MODULE_23__core_core_route_activator_service__["a" /* CoreCanActivate */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/common/simple-modal/simple-modal.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Comfortaa');\r\n\r\n.modal-header{\r\n    font-family: 'Comfortaa', cursive;\r\n}\r\n\r\n.modal-body{\r\n    font-family: 'Comfortaa', cursive;\r\n}\r\n\r\n.modal-footer{\r\n    font-family: 'Comfortaa', cursive;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/common/simple-modal/simple-modal.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng-template #modalContent let-d=\"dismiss\">\r\n    <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\" id=\"important-msg-label\">\r\n            <ng-content select=\"[modal-title]\"></ng-content>\r\n        </h4>\r\n        <button type=\"button\" class=\"close\" (click)=\"d('cross click')\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n            <span class=\"sr-only\">Close</span>\r\n        </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n        <ng-content select=\"[modal-body]\"></ng-content>\r\n    </div>\r\n    <div class=\"modal-footer\" *ngIf=\"useFooter\">\r\n            <ng-content select=\"[modal-footer]\"></ng-content>\r\n    </div>\r\n</ng-template>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/common/simple-modal/simple-modal.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SimpleModalComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SimpleModalComponent = /** @class */ (function () {
+    function SimpleModalComponent(modalService) {
+        this.modalService = modalService;
+        this.useFooter = false;
+    }
+    SimpleModalComponent.prototype.openDialog = function (options) {
+        var _this = this;
+        if (options === void 0) { options = { centered: true }; }
+        if (!this.dialogOpen) {
+            this.modalRef = this.modalService.open(this.modalContent, options);
+            this.modalRef.result.then(function (result) {
+                _this.closeResult = "Closed with: " + result;
+                _this.modalRef = null;
+            }, function (reason) {
+                _this.closeResult = "Dismissed " + _this.getDismissReason(reason);
+                _this.modalRef = null;
+            });
+        }
+        return this.modalRef;
+    };
+    SimpleModalComponent.prototype.closeDialog = function (result) {
+        if (this.dialogOpen) {
+            this.modalRef.close(result);
+            this.modalRef = null;
+        }
+    };
+    SimpleModalComponent.prototype.dismissDialog = function (reason) {
+        if (this.dialogOpen) {
+            this.modalRef.dismiss(reason);
+            this.modalRef = null;
+        }
+    };
+    Object.defineProperty(SimpleModalComponent.prototype, "dialogOpen", {
+        get: function () {
+            return !!this.modalRef;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SimpleModalComponent.prototype.getDismissReason = function (reason) {
+        if (reason === __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["a" /* ModalDismissReasons */].ESC) {
+            return 'by pressing ESC';
+        }
+        else if (reason === __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["a" /* ModalDismissReasons */].BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        }
+        else {
+            return "with: " + reason;
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], SimpleModalComponent.prototype, "useFooter", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('modalContent'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* TemplateRef */])
+    ], SimpleModalComponent.prototype, "modalContent", void 0);
+    SimpleModalComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-simple-modal',
+            template: __webpack_require__("../../../../../src/app/common/simple-modal/simple-modal.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/common/simple-modal/simple-modal.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]])
+    ], SimpleModalComponent);
+    return SimpleModalComponent;
 }());
 
 
@@ -217,7 +361,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".board-core {\r\n  position: absolute;\r\n  padding: 0;\r\n  width: 100vw;\r\n  height: 56.25vw; /* height:width ratio = 9/16 = .5625  */\r\n  max-height: 85vh;\r\n  max-width: 190vh; /* 16/9 = 1.778 */\r\n  margin: auto;\r\n  top: 11vh;\r\n  bottom: 1vh; /* vertical center */\r\n  left: 0;\r\n  right: 0; /* horizontal center */\r\n  z-index: -1000;\r\n}\r\n\r\n.user-board {\r\n}\r\n\r\n.game-board {\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fascinate', black, serif;\r\n  font-size: 5.5vh;\r\n  background-color: #ff5b5b;\r\n  margin: 0;\r\n  text-align: center;\r\n  color: #3b3e47;\r\n}\r\n\r\ninput{\r\n  margin: 5px;\r\n  width: 28vw;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  font-size: 2.5vw;\r\n  border-width: 0 0 5px 0;\r\n  /* box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 3px 9px rgba(0,0,0,0.24); */\r\n}\r\n\r\ninput:focus {\r\n  border-color: #ff5b5b;\r\n  outline: 0 none;\r\n}\r\n\r\n.name-field-div {\r\n  padding: 0;\r\n  width: 30vw;\r\n  height: 18vw; /* height:width ratio = 9/16 = .5625  */\r\n  max-height: 85vh;\r\n  max-width: 177.78vh; /* 16/9 = 1.778 */\r\n  margin: auto;\r\n  position: absolute;\r\n  top: 11vh;\r\n  bottom: 1vh; /* vertical center */\r\n  left: 0;\r\n  right: 0; /* horizontal center */\r\n}\r\n\r\n.name-field-card{\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n", ""]);
+exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Comfortaa');\r\n\r\n.board-core {\r\n  position: absolute;\r\n  padding: 0;\r\n  width: 100vw;\r\n  height: 56.25vw; /* height:width ratio = 9/16 = .5625  */\r\n  max-height: 85vh;\r\n  max-width: 190vh; /* 16/9 = 1.778 */\r\n  margin: auto;\r\n  top: 11vh;\r\n  bottom: 1vh; /* vertical center */\r\n  left: 0;\r\n  right: 0; /* horizontal center */\r\n  z-index: -1000;\r\n}\r\n\r\n.user-board {\r\n}\r\n\r\n.game-board {\r\n}\r\n\r\nh1 {\r\n  font-family: 'Comfortaa', cursive;\r\n  font-size: 5.5vh;\r\n  font-weight: bold;\r\n  background-color: #ff5b5b;\r\n  margin: 0;\r\n  text-align: center;\r\n  color: #3b3e47;\r\n}\r\n\r\np{\r\n  color: #ff5b5b;\r\n  text-align: end;\r\n  margin-bottom: 4vw;\r\n  margin-right: 1vw;\r\n  position: relative;\r\n  top: 57%;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: lighter;\r\n}\r\n\r\ninput{\r\n  margin: 5px;\r\n  width: 28vw;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  font-size: 2.5vw;\r\n  border-width: 0 0 5px 0;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: lighter;\r\n  /* box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 3px 9px rgba(0,0,0,0.24); */\r\n}\r\n\r\ninput:focus {\r\n  border-color: #ff5b5b;\r\n  outline: 0 none;\r\n}\r\n\r\n.name-field-div {\r\n  padding: 0;\r\n  width: 30vw;\r\n  height: 18vw; /* height:width ratio = 9/16 = .5625  */\r\n  max-height: 85vh;\r\n  max-width: 177.78vh; /* 16/9 = 1.778 */\r\n  margin: auto;\r\n  position: absolute;\r\n  top: 11vh;\r\n  bottom: 1vh; /* vertical center */\r\n  left: 0;\r\n  right: 0; /* horizontal center */\r\n}\r\n\r\n.name-field-card{\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n", ""]);
 
 // exports
 
@@ -230,7 +374,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/core/board-core/board-core.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"name-field-div\" *ngIf=\"!hasName\" fxLayout=\"column\" [@nameAnimationState] = 'getNameState'>\r\n  <div class=\"name-field-top\"fxFlex=\"20\">\r\n    <h1>Enter Your Name!</h1>\r\n  </div>\r\n  <mat-card class=\"name-field-card\" fxFlex=\"\">\r\n    <input #input matInput placeholder=\"Wut's ur name?\" (keyup.enter)=\"[setPlayerName(input.value)]\">\r\n  </mat-card>\r\n</mat-card>\r\n\r\n<div class=\"board-core\" fxLayout=\"row\" *ngIf=\"hasName\" [@boardAnimationState] = 'getBoardState'>\r\n  <div fxLayout=\"row\" fxFill fxLayoutAlign=\"space-between stretch\">\r\n    <div class=\"user-board\" fxLayout=\"column\" fxFlex=\"18\" fxLayoutAlign=\"space-between stretch\">\r\n      <app-score-board fxFlex=\"58\"></app-score-board>\r\n      <app-chat fxFlex=\"40\"></app-chat>\r\n    </div>\r\n    <div class=\"game-board\" fxLayout=\"column\" fxFlex=\"81\" fxLayoutAlign=\"space-between stretch\">\r\n      <app-game-board fxFill></app-game-board>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"board-core\" fxLayout=\"row\" [@boardAnimationState] = 'getBoardState'>\r\n  <div fxLayout=\"row\" fxFill fxLayoutAlign=\"space-between stretch\">\r\n    <div class=\"user-board\" fxLayout=\"column\" fxFlex=\"18\" fxLayoutAlign=\"space-between stretch\">\r\n      <app-score-board fxFlex=\"58\"></app-score-board>\r\n      <app-chat fxFlex=\"40\"></app-chat>\r\n    </div>\r\n    <div class=\"game-board\" fxLayout=\"column\" fxFlex=\"81\" fxLayoutAlign=\"space-between stretch\">\r\n      <app-game-board fxFill></app-game-board>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -242,6 +386,7 @@ module.exports = "<mat-card class=\"name-field-div\" *ngIf=\"!hasName\" fxLayout
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__socket_io_socket_io_service__ = __webpack_require__("../../../../../src/app/socket-io/socket-io.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_animations__ = __webpack_require__("../../../animations/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -254,18 +399,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BoardCoreComponent = /** @class */ (function () {
-    function BoardCoreComponent(socketService) {
+    function BoardCoreComponent(socketService, router) {
         this.socketService = socketService;
+        this.router = router;
         this.showName = true;
         this.hasName = false;
         this.showBoard = false;
     }
     BoardCoreComponent.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () {
-            _this.toggleName();
-        }, 1);
+        if (this.socketService.hasSocket) {
+            console.log('hasSocket');
+        }
         if (this.socketService.hasSocket) {
             this.hasName = true;
             this.socketService.initSocket();
@@ -274,32 +421,18 @@ var BoardCoreComponent = /** @class */ (function () {
             }, 10);
         }
     };
-    BoardCoreComponent.prototype.ngOnDestroy = function () {
-        this.socketService.closeSocket();
-    };
     BoardCoreComponent.prototype.setPlayerName = function (playerName) {
         var _this = this;
         console.log('setPlayerName');
-        this.toggleName();
         setTimeout(function () {
             _this.playerName = playerName;
             _this.hasName = true;
             _this.socketService.setPlayerName(playerName);
             _this.socketService.initSocket();
-            setTimeout(function () {
-                _this.toggleBoard();
-            }, 10);
-        }, 300);
+        });
     };
-    Object.defineProperty(BoardCoreComponent.prototype, "getNameState", {
-        get: function () {
-            return this.showName ? 'start' : 'end';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    BoardCoreComponent.prototype.toggleName = function () {
-        this.showName = !this.showName;
+    BoardCoreComponent.prototype.ngOnDestroy = function () {
+        this.socketService.closeSocket();
     };
     Object.defineProperty(BoardCoreComponent.prototype, "getBoardState", {
         get: function () {
@@ -317,16 +450,6 @@ var BoardCoreComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/core/board-core/board-core.component.html"),
             styles: [__webpack_require__("../../../../../src/app/core/board-core/board-core.component.css")],
             animations: [
-                Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["k" /* trigger */])('nameAnimationState', [
-                    Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["h" /* state */])('start', Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["i" /* style */])({
-                        transform: 'translateX(0%) translateY(180%)'
-                    })),
-                    Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["h" /* state */])('end', Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["i" /* style */])({
-                        transform: 'translateX(0%) translateY(0%)'
-                    })),
-                    Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["j" /* transition */])('start => end', Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["e" /* animate */])('500ms ease-in')),
-                    Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["j" /* transition */])('end => start', Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["e" /* animate */])('300ms ease-in'))
-                ]),
                 Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["k" /* trigger */])('boardAnimationState', [
                     Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["h" /* state */])('start', Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["i" /* style */])({
                         transform: 'translateX(0%) translateY(-170%)'
@@ -338,7 +461,7 @@ var BoardCoreComponent = /** @class */ (function () {
                 ])
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__socket_io_socket_io_service__["a" /* SocketIoService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__socket_io_socket_io_service__["a" /* SocketIoService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
     ], BoardCoreComponent);
     return BoardCoreComponent;
 }());
@@ -362,7 +485,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@import url(\"https://fonts.googleapis.com/css?family=Fascinate\");\n.chat-card {\n  margin: 0;\n  padding: 0; }\nh1 {\n  font-family: 'Fascinate', black, serif;\n  font-size: 3vh;\n  background-color: #ff5b5b;\n  margin: 0;\n  text-align: center;\n  color: #3b3e47;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }\nmat-list-item {\n  background-color: #ff8e88;\n  padding: 0;\n  margin-bottom: 3px;\n  margin-left: 2px;\n  margin-right: 2px;\n  color: white; }\nmat-list {\n  color: white;\n  padding: 0; }\n.chat {\n  overflow-y: scroll; }\n.chat-input {\n  margin: 0;\n  padding: 0;\n  border-bottom: #b0bebe;\n  border-style: solid;\n  border-width: 0 0 5px 0;\n  outline: 0 none;\n  text-indent: 10px; }\n.chat-input:hover {\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  border-bottom-color: #ff8e88; }\n.chat-input:focus {\n  -webkit-box-shadow: 0 6px 9px rgba(0, 0, 0, 0.16), 0 6px 9px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 6px 9px rgba(0, 0, 0, 0.16), 0 6px 9px rgba(0, 0, 0, 0.23);\n  border-bottom: #ff5b5b;\n  border-style: solid;\n  border-width: 0 0 5px 0; }\n", ""]);
+exports.push([module.i, "@import url(\"https://fonts.googleapis.com/css?family=Comfortaa\");\n.chat-card {\n  margin: 0;\n  padding: 0; }\nh1 {\n  font-family: 'Comfortaa', cursive;\n  font-size: 2.5vh;\n  background-color: #ff5b5b;\n  margin: 0;\n  text-align: center;\n  color: #3b3e47;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  padding-top: 0.5vh; }\nmat-list-item {\n  background-color: #ff8e88;\n  padding: 1px;\n  margin: 2px;\n  color: white;\n  font-family: 'Comfortaa', cursive;\n  font-size: small; }\nmat-list {\n  color: white;\n  padding: 0; }\n.chat {\n  overflow-y: scroll; }\n.chat-input {\n  margin: 0;\n  padding: 0;\n  border-bottom: #b0bebe;\n  border-style: solid;\n  border-width: 0 0 5px 0;\n  outline: 0 none;\n  text-indent: 10px;\n  font-family: 'Comfortaa', cursive;\n  font-weight: lighter; }\n.chat-input:hover {\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  border-bottom-color: #ff8e88; }\n.chat-input:focus {\n  -webkit-box-shadow: 0 6px 9px rgba(0, 0, 0, 0.16), 0 6px 9px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 6px 9px rgba(0, 0, 0, 0.16), 0 6px 9px rgba(0, 0, 0, 0.23);\n  border-bottom: #ff5b5b;\n  border-style: solid;\n  border-width: 0 0 5px 0; }\n", ""]);
 
 // exports
 
@@ -425,6 +548,49 @@ var ChatComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/core/core-route-activator.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCanActivate; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__socket_io_socket_io_service__ = __webpack_require__("../../../../../src/app/socket-io/socket-io.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CoreCanActivate = /** @class */ (function () {
+    function CoreCanActivate(socketService, router) {
+        this.socketService = socketService;
+        this.router = router;
+    }
+    CoreCanActivate.prototype.canActivate = function () {
+        var hasSocket = this.socketService.hasSocket;
+        if (!hasSocket) {
+            this.router.navigate(['/splash']);
+        }
+        return this.socketService.hasSocket;
+    };
+    CoreCanActivate = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__socket_io_socket_io_service__["a" /* SocketIoService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]])
+    ], CoreCanActivate);
+    return CoreCanActivate;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/core/core.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -446,7 +612,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/core/core.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column\" fxLayoutGap=\"40px\">\r\n  <app-global-navbar fxFlex=\"100%\"></app-global-navbar>\r\n  <app-board-core>\r\n\r\n  </app-board-core>\r\n</div>\r\n"
+module.exports = "<div fxLayout=\"column\" fxLayoutGap=\"40px\">\r\n  <app-global-navbar fxFlex=\"100%\"></app-global-navbar>\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -614,7 +780,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".game-board-card {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fascinate', black, serif;\r\n  font-size: 3vh;\r\n  background-color: #ff5b5b;\r\n  margin: 0;\r\n  text-align: center;\r\n  color: #3b3e47;\r\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\r\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\r\n}\r\n\r\n.blackCard {\r\n  padding: 20px;\r\n  margin: 0 10px 0 10px;\r\n  -webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n  border-top: #ff5b5b 0.5vw solid;\r\n  background-color: #263237;\r\n  max-width: 14%;\r\n}\r\n\r\np{\r\n  color: #3b3e47;\r\n}\r\n\r\n.blackCardText{\r\n  color: white;\r\n}\r\n\r\n.blackCardId{\r\n  color: white;\r\n}\r\n\r\n.whiteCard {\r\n  padding: 20px;\r\n  margin: 0 10px 0 10px;\r\n  -webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n  border-top: #ff5b5b 0.5vw solid;\r\n  max-width: 14%;\r\n}\r\n\r\n.whiteCard:hover {\r\n  border-bottom: #ff5b5b 0.5vw solid;\r\n  border-top: #ff5b5b 0vw solid;\r\n  /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22); */\r\n}\r\n\r\n.submissions {\r\n  overflow: hidden;\r\n  padding: 0 0 0 0;\r\n}\r\n\r\n.hand {\r\n  padding: 0 0 0 0;\r\n}\r\n\r\n.controls {\r\n\r\n}\r\n\r\nbutton {\r\n  background-color: #ff5b5b;\r\n  color: #3b3e47;\r\n  font-family: 'Fascinate', black, serif;\r\n  font-size: 3vh;\r\n}\r\n\r\nbutton:hover {\r\n  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);\r\n          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);\r\n  background-color: white;\r\n  color: #ff5b5b;\r\n  cursor: pointer;\r\n}\r\n\r\n#ghost_SPOOOK {\r\n  opacity: 0.3;\r\n}\r\n", ""]);
+exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Comfortaa');\r\n\r\n.game-board-card {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bold;\r\n  font-size: 3vh;\r\n  padding-top: 0.5vh;\r\n  background-color: #ff5b5b;\r\n  margin: 0;\r\n  text-align: center;\r\n  color: #3b3e47;\r\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\r\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\r\n}\r\n\r\n.blackCard {\r\n  padding: 20px;\r\n  margin: 0 10px 0 10px;\r\n  -webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n  border-top: #ff5b5b 0.5vw solid;\r\n  background-color: #263237;\r\n  max-width: 14%;\r\n}\r\n\r\nh3{\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: lighter;\r\n}\r\n\r\np{\r\n  color: #3b3e47;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bolder;\r\n}\r\n\r\n.blackCardText{\r\n  color: white;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: lighter;\r\n}\r\n\r\n.blackCardId{\r\n  color: white;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bolder;\r\n}\r\n\r\n.whiteCard {\r\n  padding: 20px;\r\n  margin: 0 10px 0 10px;\r\n  -webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);\r\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\r\n  border-top: #ff5b5b 0.5vw solid;\r\n  max-width: 14%;\r\n}\r\n\r\n.whiteCard:hover {\r\n  border-bottom: #ff5b5b 0.5vw solid;\r\n  border-top: #ff5b5b 0vw solid;\r\n  /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22); */\r\n}\r\n\r\n.submissions {\r\n  overflow: hidden;\r\n  padding: 0 0 0 0;\r\n}\r\n\r\n.hand {\r\n  padding: 0 0 0 0;\r\n}\r\n\r\n.controls {\r\n\r\n}\r\n\r\nbutton {\r\n  background-color: #ff5b5b;\r\n  color: #3b3e47;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bold;\r\n  font-size: 3vh;\r\n}\r\n\r\nbutton:hover {\r\n  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);\r\n          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);\r\n  background-color: white;\r\n  color: #ff5b5b;\r\n  cursor: pointer;\r\n}\r\n\r\n#ghost_SPOOOK {\r\n  opacity: 0.3;\r\n}\r\n", ""]);
 
 // exports
 
@@ -701,7 +867,7 @@ var GameBoardComponent = /** @class */ (function () {
     };
     GameBoardComponent.prototype.trackPointerPosition = function () {
         var _this = this;
-        this.pointerPosition.pipe(Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["a" /* throttle */])(function (val) { return Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_observable_interval__["a" /* interval */])(20); })).subscribe(function (e) {
+        this.pointerPosition.pipe(Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["f" /* throttle */])(function (val) { return Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_observable_interval__["a" /* interval */])(20); })).subscribe(function (e) {
             _this.cursorX = e.clientX;
             _this.cursorY = e.clientY;
             _this.cursorInSubmissions = _this.cursorX > _this.submissionDimensions.left && _this.cursorX < _this.submissionDimensions.right &&
@@ -734,7 +900,7 @@ var GameBoardComponent = /** @class */ (function () {
     };
     GameBoardComponent.prototype.trackResize = function () {
         var _this = this;
-        this.resize.pipe(Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["a" /* throttle */])(function (val) { return Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_observable_interval__["a" /* interval */])(20); })).subscribe(function (e) {
+        this.resize.pipe(Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["f" /* throttle */])(function (val) { return Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_observable_interval__["a" /* interval */])(20); })).subscribe(function (e) {
             _this.submissionDimensions = document.getElementById('submissions').getBoundingClientRect();
         });
     };
@@ -826,10 +992,135 @@ var GameBoardComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/core/lobby/lobby.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Comfortaa');\r\n\r\n.board-core {\r\n  position: absolute;\r\n  padding: 0;\r\n  width: 100vw;\r\n  height: 56.25vw; /* height:width ratio = 9/16 = .5625  */\r\n  max-height: 85vh;\r\n  max-width: 190vh; /* 16/9 = 1.778 */\r\n  margin: auto;\r\n  top: 11vh;\r\n  bottom: 1vh; /* vertical center */\r\n  left: 0;\r\n  right: 0; /* horizontal center */\r\n  z-index: -1000;\r\n}\r\n\r\n.user-board {\r\n}\r\n\r\n.game-board {\r\n}\r\n\r\nh1 {\r\n  font-family: 'Comfortaa', cursive;\r\n  font-size: 5.5vh;\r\n  font-weight: bold;\r\n  background-color: #ff5b5b;\r\n  margin: 0;\r\n  text-align: center;\r\n  color: #3b3e47;\r\n}\r\n\r\np{\r\n  color: #ff5b5b;\r\n  text-align: end;\r\n  margin-bottom: 4vw;\r\n  margin-right: 1vw;\r\n  position: relative;\r\n  top: 57%;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: lighter;\r\n}\r\n\r\ninput{\r\n  margin: 5px;\r\n  width: 28vw;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  font-size: 2.5vw;\r\n  border-width: 0 0 5px 0;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: lighter;\r\n  /* box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 3px 9px rgba(0,0,0,0.24); */\r\n}\r\n\r\ninput:focus {\r\n  border-color: #ff5b5b;\r\n  outline: 0 none;\r\n}\r\n\r\n.name-field-div {\r\n  padding: 0;\r\n  width: 30vw;\r\n  height: 18vw; /* height:width ratio = 9/16 = .5625  */\r\n  max-height: 85vh;\r\n  max-width: 177.78vh; /* 16/9 = 1.778 */\r\n  margin: auto;\r\n  position: absolute;\r\n  top: 11vh;\r\n  bottom: 1vh; /* vertical center */\r\n  left: 0;\r\n  right: 0; /* horizontal center */\r\n}\r\n\r\n.name-field-card{\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\nbutton {\r\n  background-color: #ff5b5b;\r\n  color: #3b3e47;\r\n  -webkit-transform: translate(0%, 220%);\r\n          transform: translate(0%, 220%);\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bold;\r\n  font-size: 3vh;\r\n  margin: 20px;\r\n}\r\n\r\nbutton:hover {\r\n  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);\r\n          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);\r\n  background-color: white;\r\n  color: #ff5b5b;\r\n  cursor: pointer;\r\n}\r\n\r\np{\r\n  top: 15vh;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/core/lobby/lobby.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<mat-card class=\"name-field-div\" fxLayout=\"column\" [@nameAnimationState] = 'getNameState'>\n  <div class=\"name-field-top\"fxFlex=\"20\">\n    <h1>Enter Your Name!</h1>\n  </div>\n  <mat-card class=\"name-field-card\" fxFlex=\"\">\n    <input matInput placeholder=\"Wut's ur name?\" (keyup.enter)=\"enterGame(inputValue)\" maxlength=\"14\" [(ngModel)]=\"inputValue\">\n    <p>Characters left: {{ 14 - inputValue.length }}</p>\n  </mat-card>\n</mat-card>\n\n<app-simple-modal #popup>\n  <div modal-title>\n    Too many players\n  </div>\n  <div modal-body>\n    Please try again later.\n  </div>\n</app-simple-modal>\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/core/lobby/lobby.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LobbyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_animations__ = __webpack_require__("../../../animations/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__socket_io_socket_io_service__ = __webpack_require__("../../../../../src/app/socket-io/socket-io.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_simple_modal_simple_modal_component__ = __webpack_require__("../../../../../src/app/common/simple-modal/simple-modal.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LobbyComponent = /** @class */ (function () {
+    function LobbyComponent(socketService, router) {
+        this.socketService = socketService;
+        this.router = router;
+        this.showName = true;
+        this.hasName = false;
+        this.inputValue = "";
+    }
+    LobbyComponent.prototype.toggleName = function () {
+        this.showName = !this.showName;
+    };
+    LobbyComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.toggleName();
+        }, 1);
+    };
+    Object.defineProperty(LobbyComponent.prototype, "getNameState", {
+        get: function () {
+            return this.showName ? 'start' : 'end';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    LobbyComponent.prototype.enterGame = function (playerName) {
+        var _this = this;
+        this.chooseName(this.playerName);
+        this.socketService.getPlayerLimit().subscribe(function (data) {
+            if (data.isLimitReached) {
+                _this.playerLimitWarning.openDialog();
+            }
+            else {
+                _this.socketService.setPlayerName(playerName);
+                _this.toggleName();
+                setTimeout(function () {
+                    _this.socketService.initSocket();
+                    _this.router.navigate(['/core/game']);
+                }, 300);
+            }
+        });
+    };
+    LobbyComponent.prototype.chooseName = function (playerName) {
+        this.playerName = playerName;
+        this.hasName = true;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('popup'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__common_simple_modal_simple_modal_component__["a" /* SimpleModalComponent */])
+    ], LobbyComponent.prototype, "playerLimitWarning", void 0);
+    LobbyComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-lobby',
+            template: __webpack_require__("../../../../../src/app/core/lobby/lobby.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/core/lobby/lobby.component.css")],
+            animations: [
+                Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["k" /* trigger */])('nameAnimationState', [
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["h" /* state */])('start', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["i" /* style */])({
+                        transform: 'translateX(0%) translateY(180%)'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["h" /* state */])('end', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["i" /* style */])({
+                        transform: 'translateX(0%) translateY(0%)'
+                    })),
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["j" /* transition */])('start => end', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["e" /* animate */])('500ms ease-in')),
+                    Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["j" /* transition */])('end => start', Object(__WEBPACK_IMPORTED_MODULE_1__angular_animations__["e" /* animate */])('300ms ease-in'))
+                ])
+            ]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__socket_io_socket_io_service__["a" /* SocketIoService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
+    ], LobbyComponent);
+    return LobbyComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/core/score-board/score-board.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"score-card\" fxFlex  fxLayout=\"column\" fxFill fxLayoutAlign=\"start stretch\">\r\n  <div class=\"score-top\" fxFlex=\"10\">\r\n    <h1>Score Board</h1>\r\n  </div>\r\n  <div class=\"scores\" fxFlex=\"90\" fxLayoutAlign=\"start stretch\" fxLayout=\"column\">\r\n    <mat-list fxLayoutAlign=\"start stretch\" fxLayout=\"column\" >\r\n      <mat-list-item *ngFor=\"let player of players\" fxLayout=\"column\" fxLayoutAlign=\"start stretch\" fxLayoutGap=\"40px\">\r\n        <div class=\"score-row\" fxFlex fxLayout=\"row\" fxLayoutAlign=\"start stretch\">\r\n          <h2 fxFlex=\"40\">{{player.playerName}}</h2> <h2 fxFlex=\"5\">: </h2> <h2 fxFlex=\"10\">{{player.score}}</h2>\r\n          <h2 fxFlex=\"45\" *ngIf=\"player.isJudge\">  - is judge</h2>\r\n        </div>\r\n      </mat-list-item>\r\n    </mat-list>\r\n  </div>\r\n</mat-card>\r\n"
+module.exports = "<mat-card class=\"score-card\" fxFlex  fxLayout=\"column\" fxFill fxLayoutAlign=\"start stretch\">\r\n  <div class=\"score-top\" fxFlex=\"10\">\r\n    <h1>Score Board</h1>\r\n  </div>\r\n  <div class=\"scores\" fxFlex=\"90\" fxLayoutAlign=\"start stretch\" fxLayout=\"column\">\r\n    <mat-list fxLayoutAlign=\"start stretch\" fxLayout=\"column\" >\r\n      <mat-list-item *ngFor=\"let player of players\" fxLayout=\"column\" fxLayoutAlign=\"start stretch\">\r\n        <div class=\"score-row\" fxFlex fxLayout=\"row\" fxLayoutAlign=\"start stretch\" fxLayoutGap=\"40px\">\r\n          <h2 class=\"player\" fxFlex=\"40\">{{player.playerName}}: {{player.score}}</h2>\r\n          <h2 class=\"isJudge\" *ngIf=\"player.isJudge\"> - judge</h2>\r\n        </div>\r\n      </mat-list-item>\r\n    </mat-list>\r\n  </div>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -841,7 +1132,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@import url(\"https://fonts.googleapis.com/css?family=Fascinate\");\n@import url(\"https://fonts.googleapis.com/css?family=Share+Tech\");\n.score-card {\n  margin: 0;\n  padding: 0; }\n.scores {\n  margin: 0;\n  padding: 0;\n  color: #263237; }\nh1 {\n  font-family: 'Fascinate', black, serif;\n  font-size: 3vh;\n  background-color: #ff5b5b;\n  margin: 0;\n  text-align: center;\n  color: #3b3e47;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }\nmat-list-item {\n  padding: 0;\n  margin-bottom: 6px;\n  margin-left: 2px;\n  margin-right: 2px;\n  border-left: #ff5b5b 0.5vw solid;\n  border-right: #ff5b5b 0.5vw solid;\n  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\nmat-list-item:hover {\n  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\nh2 {\n  margin: 0;\n  color: #3b3e47;\n  padding: 0;\n  font-family: 'Share Tech', sans-serif;\n  font-size: 2.5vh; }\nmat-list {\n  margin: 0;\n  padding: 0; }\n", ""]);
+exports.push([module.i, "@import url(\"https://fonts.googleapis.com/css?family=Comfortaa\");\n.score-card {\n  margin: 0;\n  padding: 0; }\n.scores {\n  margin: 0;\n  padding: 0;\n  color: #263237; }\n.player {\n  font-family: 'Comfortaa', cursive;\n  text-align: left;\n  font-weight: bold; }\n.isJudge {\n  font-family: 'Comfortaa', cursive;\n  margin-right: 0;\n  font-weight: bold; }\n.score-row {\n  webkit-flex-wrap: nowrap;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\nh2 {\n  color: #3b3e47;\n  font-size: 2.2vh; }\nh1 {\n  font-family: 'Comfortaa', cursive;\n  font-weight: bold;\n  font-size: 2.5vh;\n  background-color: #ff5b5b;\n  margin: 0;\n  text-align: center;\n  color: #3b3e47;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  padding-top: 0.5vh; }\nmat-list-item {\n  padding: 0;\n  margin-bottom: 6px;\n  margin-left: 2px;\n  margin-right: 2px;\n  border-left: #ff5b5b 0.5vw solid;\n  border-right: #ff5b5b 0.5vw solid;\n  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\nmat-list-item:hover {\n  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\nmat-list {\n  margin: 0;\n  padding: 0; }\n", ""]);
 
 // exports
 
@@ -906,7 +1197,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Fascinate');\r\n.center-elements{\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\nh1{\r\n  margin: 0.2vw 0 0 0;\r\n  display: inline-block;\r\n  font-size: 6vh;\r\n  font-family: 'Fascinate', black, serif;\r\n  color: #3b3e47;\r\n  vertical-align: top;\r\n}\r\n.goose-icon{\r\n  display: inline-block;\r\n  padding: 0;\r\n  margin-right: 2vh;\r\n  height: 9vh;\r\n  width: 9vh;\r\n  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);\r\n          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);\r\n}\r\n", ""]);
+exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Comfortaa');\r\n\r\n.center-elements{\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\n\r\nh1{\r\n  margin: 0.7vw 0 0 0;\r\n  display: inline-block;\r\n  font-size: 6vh;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bolder;\r\n  color: #3b3e47;\r\n  vertical-align: top;\r\n}\r\n\r\n.goose-icon{\r\n  display: inline-block;\r\n  padding: 0;\r\n  margin-right: 2vh;\r\n  height: 9vh;\r\n  width: 9vh;\r\n  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);\r\n          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);\r\n}\r\n", ""]);
 
 // exports
 
@@ -1054,9 +1345,11 @@ var GlobalNavbarComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SocketIoService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1069,8 +1362,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var SocketIoService = /** @class */ (function () {
-    function SocketIoService() {
+    function SocketIoService(http, location) {
+        this.http = http;
+        this.location = location;
         this.SERVER_URL = 'http://localhost:8081';
         this.players = [];
         this.submissions = [];
@@ -1127,7 +1424,7 @@ var SocketIoService = /** @class */ (function () {
     };
     SocketIoService.prototype.initSocket = function () {
         if (this.socket === undefined) {
-            this.socket = __WEBPACK_IMPORTED_MODULE_2_socket_io_client__({ query: 'name=' + this.playerName });
+            this.socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__({ query: 'name=' + this.playerName });
             // this.socket = SocketIo(this.SERVER_URL, { query: 'name=' + this.playerName });
         }
         else {
@@ -1154,15 +1451,24 @@ var SocketIoService = /** @class */ (function () {
     };
     SocketIoService.prototype.onMessage = function () {
         var _this = this;
-        return new __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["a" /* Observable */](function (observer) {
+        return new __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */](function (observer) {
             _this.socket.on('message', function (data) {
+                observer.next(data);
+            });
+        });
+    };
+    SocketIoService.prototype.onPlayerAmount = function () {
+        var _this = this;
+        return new __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */](function (observer) {
+            _this.socket.on('playerAmount', function (data) {
+                console.log(data);
                 observer.next(data);
             });
         });
     };
     SocketIoService.prototype.onDisplayUpdate = function () {
         var _this = this;
-        return new __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["a" /* Observable */](function (observer) {
+        return new __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */](function (observer) {
             _this.socket.on('updateDisplay', function (data) {
                 console.log('Socket got an update for display');
                 observer.next(data);
@@ -1171,7 +1477,7 @@ var SocketIoService = /** @class */ (function () {
     };
     SocketIoService.prototype.onReset = function () {
         var _this = this;
-        return new __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["a" /* Observable */](function (observer) {
+        return new __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */](function (observer) {
             _this.socket.on('boardReset', function (data) {
                 observer.next(data);
             });
@@ -1193,9 +1499,12 @@ var SocketIoService = /** @class */ (function () {
         this.socket.emit('judgment', card);
         console.log('judged');
     };
+    SocketIoService.prototype.getPlayerLimit = function () {
+        return this.http.get(this.location.prepareExternalUrl('') + '/playerLimit');
+    };
     SocketIoService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* Location */]])
     ], SocketIoService);
     return SocketIoService;
 }());
@@ -1212,7 +1521,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "  @import url('https://fonts.googleapis.com/css?family=Fascinate');\r\n\r\n#enter:hover, #about:hover, h1:hover{\r\n  background-color: white;\r\n  color: #ff5b5b;\r\n  cursor: pointer;\r\n}\r\n\r\n#enter:hover, #about:hover{\r\n  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\r\n          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\r\n}\r\n\r\n#about, #enter{\r\n  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n  -webkit-transition: all 0.2s cubic-bezier(.25,.8,.25,1);\r\n  transition: all 0.2s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\n#enter{\r\n  margin: 0 0 0 2vw;\r\n  float: left;\r\n  width: 15vw;\r\n  padding-right: 7vw;\r\n\r\n}\r\n\r\n#about{\r\n  float: right;\r\n  width: 15vw;\r\n  margin: 0 2vw 0 0;\r\n  padding-right: 7vw;\r\n}\r\n\r\nh1 {\r\n  margin: 0;\r\n  padding: 1vw 4vw;\r\n  height: 6vw;\r\n  background-color: #ff5b5b;\r\n  color: #3b3e47;\r\n  font-family: 'Fascinate', serif;\r\n  horiz-align: center;\r\n  font-size: 5vw;\r\n  width: 14vw;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  -webkit-user-select: none;\r\n  user-select: none;\r\n}\r\n\r\n.overlay {\r\n  width: 55vw;\r\n  position: absolute;\r\n  top: 100%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  -webkit-transform: translate(-50%, -110%);\r\n          transform: translate(-50%, -110%);\r\n}\r\n", ""]);
+exports.push([module.i, "  @import url('https://fonts.googleapis.com/css?family=Comfortaa');\r\n\r\n#enter:hover, #about:hover, h1:hover{\r\n  background-color: white;\r\n  color: #ff5b5b;\r\n  cursor: pointer;\r\n}\r\n\r\n#enter:hover, #about:hover{\r\n  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\r\n          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\r\n}\r\n\r\n#about, #enter{\r\n  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n  -webkit-transition: all 0.2s cubic-bezier(.25,.8,.25,1);\r\n  transition: all 0.2s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\n#enter{\r\n  float: left;\r\n}\r\n\r\n#about{\r\n  float: right;\r\n}\r\n\r\nh1 {\r\n  margin: 0;\r\n  padding: 1vw 4vw 1vw 3.5vw;\r\n  background-color: #ff5b5b;\r\n  color: #3b3e47;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  font-size: 5.5vw;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  -webkit-user-select: none;\r\n  user-select: none;\r\n}\r\n\r\n.overlay {\r\n  width: 55vw;\r\n  position: absolute;\r\n  top: 100%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  -webkit-transform: translate(-50%, -110%);\r\n          transform: translate(-50%, -110%);\r\n}\r\n", ""]);
 
 // exports
 
@@ -1225,7 +1534,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/splash/splash-navigate/splash-navigate.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"overlay\" [@splashButtonsAnimationState] = 'getState'>\r\n  <div id=\"enter\" (click)=\"toCore()\">\r\n    <h1>Enter</h1>\r\n  </div>\r\n  <div id=\"about\" (click)=\"toAbout()\">\r\n    <h1>About</h1>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"overlay\" [@splashButtonsAnimationState] = 'getState'>\n  <div id=\"enter\" (click)=\"toCore()\">\n    <h1>Enter</h1>\n  </div>\n  <div id=\"about\" (click)=\"toAbout()\">\n    <h1>About</h1>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1255,6 +1564,7 @@ var SplashNavigateComponent = /** @class */ (function () {
         this.router = router;
         this.show = true;
         this.routeOut = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.stopEnter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.animate = function (callRoute) {
             console.log('redirecting to core');
             _this.routeOut.emit(null);
@@ -1290,6 +1600,10 @@ var SplashNavigateComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */])
     ], SplashNavigateComponent.prototype, "routeOut", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */])
+    ], SplashNavigateComponent.prototype, "stopEnter", void 0);
     SplashNavigateComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-splash-navigate',
@@ -1324,7 +1638,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Fascinate');\r\napp-splash{\r\n  width: 100vw;\r\n  height: 20vw;\r\n  border-style: solid;\r\n}\r\n.splash-wrapper {\r\n  height: 40vw;\r\n  width: 30vw;\r\n\r\n  position: absolute;\r\n  top: 30%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\n.center-elements{\r\n  width: 55vw;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  padding-bottom: 2.3vw;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  border-bottom: 1vw solid #ff5b5b;\r\n}\r\nh1{\r\n  margin: 3vw 0 0 0;\r\n  display: inline-block;\r\n  font-size: 6vw;\r\n  font-family: 'Fascinate', serif;\r\n  color: #ff5b5b;\r\n  vertical-align: top;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  -webkit-user-select: none;\r\n  user-select: none;\r\n}\r\n.goose-icon{\r\n  display: inline-block;\r\n  margin: 0 7vw 0 0;\r\n  height: 15vw;\r\n  width: 15vw;\r\n  -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 3px 9px rgba(0,0,0,0.24);\r\n          box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 3px 9px rgba(0,0,0,0.24);\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "@import url('https://fonts.googleapis.com/css?family=Comfortaa');\r\n\r\napp-splash{\r\n  width: 100vw;\r\n  height: 20vw;\r\n  border-style: solid;\r\n}\r\n\r\n.splash-wrapper {\r\n  height: 40vw;\r\n  width: 30vw;\r\n\r\n  position: absolute;\r\n  top: 30%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\n\r\n.center-elements{\r\n  width: 60vw;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  margin: 0 0 0 0;\r\n  padding-bottom: 2.3vw;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  border-bottom: 1vw solid #ff5b5b;\r\n}\r\n\r\nh1{\r\n  margin: 3vw 0 0 0;\r\n  margin-left: 3vw;\r\n  display: inline-block;\r\n  font-size: 7vw;\r\n  font-family: 'Comfortaa', cursive;\r\n  font-weight: bolder;\r\n  color: #ff5b5b;\r\n  vertical-align: top;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  -webkit-user-select: none;\r\n  user-select: none;\r\n}\r\n\r\n.goose-icon{\r\n  display: inline-block;\r\n  margin: 0 7vw 0 0 0;\r\n  height: 15vw;\r\n  width: 15vw;\r\n  -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 3px 9px rgba(0,0,0,0.24);\r\n          box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 3px 9px rgba(0,0,0,0.24);\r\n}\r\n\r\n", ""]);
 
 // exports
 

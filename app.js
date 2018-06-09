@@ -12,7 +12,6 @@ app.get('/', function (req, res) {
 
 app.get('/playerLimit', function (req, res) {
     console.log(board.isLimitReached());
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200'); //only for running on seperate address
     res.send(JSON.stringify({isLimitReached: board.isLimitReached()}));
 })
 
